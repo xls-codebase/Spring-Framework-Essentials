@@ -17,14 +17,6 @@ import javax.sql.DataSource;
  * - Creating Spring application context in the test code
  *   (WITHOUT using Spring testContext framework)
  *
- * TODO-02: Define four empty @Bean methods, one for the
- *          reward-network and three for the repositories.
- * - The names of the beans should be:
- *   - rewardNetwork
- *   - accountRepository
- *   - restaurantRepository
- *   - rewardRepository
- *
  * TODO-03: Inject DataSource through constructor injection
  * - Each repository implementation has a DataSource
  *   property to be set, but the DataSource is defined
@@ -49,6 +41,10 @@ import javax.sql.DataSource;
 public class RewardsConfig {
 
 	private DataSource dataSource;
+
+    public RewardsConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Bean
     public void rewardNetwork(AccountRepository accountRepository, RestaurantRepository restaurantRepository, RewardRepository rewardRepository) {
