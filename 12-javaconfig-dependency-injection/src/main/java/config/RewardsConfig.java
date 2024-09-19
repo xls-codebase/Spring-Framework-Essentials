@@ -1,5 +1,7 @@
 package config;
 
+import org.springframework.context.annotation.Configuration;
+
 import javax.sql.DataSource;
 
 /**
@@ -42,6 +44,7 @@ import javax.sql.DataSource;
  *   not an implementation.
  */
 
+@Configuration
 public class RewardsConfig {
 
 	// Set this by adding a constructor.
