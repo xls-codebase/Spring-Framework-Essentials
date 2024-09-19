@@ -9,19 +9,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import javax.sql.DataSource;
 
 /**
- * TODO-06: Study this configuration class used for testing
- * - It contains a @Bean method that returns DataSource.
- * - It also creates and populates in-memory HSQL database tables
- *   using two SQL scripts.
- * - Note that the two scripts are located under the
- *   'src/main/resources/rewards/testdb' directory of
- *   the '00-rewards-common' project
- * - Do not modify this method.
- *
- * TODO-07: Import your application configuration file (RewardsConfig)
- * - Now the test code should have access to all the beans defined in
- *   the RewardsConfig configuration class
- *
  * TODO-08: Create a new JUnit 5 test class
  * - Call it RewardNetworkTests
  * - Create it in the same package this configuration class is located.
