@@ -9,13 +9,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import javax.sql.DataSource;
 
 /**
- * TODO-09: Make sure the setUp() method in the RewardNetworkTests class is annotated with @BeforeEach.
- * - In the setUp() method, create an application context using
- *   this configuration class - use run(..) static method of
- *   the SpringApplication class
- * - Then get the 'rewardNetwork' bean from the application context
- *   and assign it to a private field for use later.
- *
  * TODO-10: We can test the setup by running an empty test.
  * - If your IDE automatically generated a @Test method, rename it
  *   testRewardForDining. Delete any code in the method body.
