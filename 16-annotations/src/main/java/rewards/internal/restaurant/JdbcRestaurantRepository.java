@@ -22,24 +22,6 @@ import java.util.Map;
  * cache should be populated on initialization and cleared on destruction.
  */
 
-/*
- * TODO-08: Use Setter injection for DataSource
- * - Change the configuration to set the dataSource
- *   property using setDataSource().
- *
- *   To do this, you must MOVE the @Autowired annotation
- *   you might have set in the previous step on the
- *   constructor injecting DataSource.
- *   So neither constructor should be annotated with
- *   @Autowired now, so Spring uses
- *   the default constructor by default.
- *
- * - Re-run the test. It should fail.
- * - Examine the stack trace and see if you can
- *   understand why. (If not, refer to lab document).
- *   We will fix this error in the next step.
- */
-
 @Repository
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
@@ -140,22 +122,6 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 		}
 		return restaurant;
 	}
-
-	/**
-	 * Helper method that clears the cache of restaurants.
-	 * This method should be called when a bean is destroyed.
-	 *
-	 * TODO-10: Add a scheme to check if this method is being invoked
-	 * - Add System.out.println to this method.
-	 *
-	 * TODO-11: Have this method to be invoked before a bean gets destroyed
-	 * - Re-run RewardNetworkTests.
-	 * - Observe this method is not called.
-	 * - Use an appropriate annotation to register this method for a
-	 *   destruction lifecycle callback.
-	 * - Re-run the test and you should be able to see
-	 *   that this method is now being called.
-	 */
 
 	@PreDestroy
 	public void clearRestaurantCache() {
