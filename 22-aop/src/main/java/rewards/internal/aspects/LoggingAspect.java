@@ -4,6 +4,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -25,12 +26,7 @@ public class LoggingAspect {
 		this.monitorFactory = monitorFactory;
 	}
 
-
-	// TODO-03: Write Pointcut Expression
-	// - Decide which advice type is most appropriate
-	// - Write a pointcut expression that selects only find* methods on
-	//    our repository classes.
-
+	@Before("execution(public * rewards.internal.*.*Repository.find*(..))")
 	public void implLogging(JoinPoint joinPoint) {
 		// Do not modify this log message or the test will fail
 		logger.info(BEFORE + " advice implementation - " + joinPoint.getTarget().getClass() + //
