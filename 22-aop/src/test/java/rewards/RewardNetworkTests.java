@@ -58,9 +58,7 @@ public class RewardNetworkTests {
 		// each distribution should be 4.00 (as both have a 50% allocation)
 		assertEquals(MonetaryAmount.valueOf("4.00"), contribution.getDistribution("Annabelle").getAmount());
 		assertEquals(MonetaryAmount.valueOf("4.00"), contribution.getDistribution("Corgan").getAmount());
-		
-		// TODO-06: Run this test. It should pass AND you should see TWO lines of
-		// log output from the LoggingAspect on the console
+
 		int expectedMatches = 2;
 		checkConsoleOutput(capture, expectedMatches);
 		
