@@ -25,13 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  */
 
-/* TODO-02: Annotate all 'Stub*Repository' classes with @Repository
- * - In the package rewards/internal, annotate all 'Stub*Repository' classes
- *   with the @Repository annotation (WITHOUT specifying any profile yet).
- *   (Make sure you are changing code in the '24-test' project.)
- * - Rerun the current test, it should fail.  Why?
- */
-
 /* TODO-03: Assign the 'jdbc' profile to all Jdbc*Repository classes
  * - Using the @Profile annotation, assign the 'jdbc' profile to all Jdbc*Repository classes
  *   (such as JdbcAccountRepository).  (Be sure to annotate the actual repository classes in

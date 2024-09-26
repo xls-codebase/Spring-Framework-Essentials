@@ -1,16 +1,15 @@
 package rewards.internal;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import common.money.Percentage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
-
+import org.springframework.stereotype.Repository;
 import rewards.internal.account.Account;
 import rewards.internal.account.AccountRepository;
 
-import common.money.Percentage;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A dummy account repository implementation. Has a single Account
@@ -22,6 +21,7 @@ import common.money.Percentage;
  * dependencies such as a Database. Simple unit tests can then verify object
  * behavior by considering the state of this stub.
  */
+@Repository
 public class StubAccountRepository implements AccountRepository {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
