@@ -1,12 +1,10 @@
 package rewards;
 
 import common.money.MonetaryAmount;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,13 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * TODO-01: Use Spring TestContext Framework
  * - Read through Spring document on Spring TestContext Framework
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
- * - Add annotation(s) to this class so that it can
- *   use Spring TestContext Framework
- * - Remove setUp() and tearDown() methods
- * - Remove the attribute "context" which is not needed anymore.
- * - Run the current test. Observe a test failure.
- * - Use @Autowired to populate the rewardNetwork bean.
- * - Re-run the current test, it should pass.
  */
 
 /* TODO-02: Annotate all 'Stub*Repository' classes with @Repository
@@ -83,33 +74,15 @@ import static org.junit.jupiter.api.Assertions.*;
  * - Run the test again.
  */
 
+@SpringJUnitConfig(classes=TestInfrastructureConfig.class)
 public class RewardNetworkTests {
 
 	
 	/**
 	 * The object being tested.
 	 */
+	@Autowired
 	private RewardNetwork rewardNetwork;
-
-	/**
-	 * Need this to enable clean shutdown at the end of the application
-	 */
-	private ConfigurableApplicationContext context;
-
-	@BeforeEach
-	public void setUp() {
-		// Create the test configuration for the application from one file
-		context = SpringApplication.run(TestInfrastructureConfig.class);
-		// Get the bean to use to invoke the application
-		rewardNetwork = context.getBean(RewardNetwork.class);
-	}
-
-	@AfterEach
-	public void tearDown() throws Exception {
-		// simulate the Spring bean destruction lifecycle:
-		if (context != null)
-			context.close();
-	}
 
 	@Test
 	@DisplayName("Test if reward computation and distribution works")
