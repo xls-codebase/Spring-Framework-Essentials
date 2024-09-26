@@ -26,10 +26,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  */
 
-/* TODO-05: Assign beans to the "local" profile
- * - Go to corresponding step in TestInfrastructureLocalConfig class.
- */
-
 /* TODO-06: Use "jdbc" and "local" as active profiles
  * - Now that the bean 'dataSource' is specific to the local profile, should we expect
  * 	 this test to be successful?
