@@ -26,13 +26,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  */
 
-/* TODO-06: Use "jdbc" and "local" as active profiles
- * - Now that the bean 'dataSource' is specific to the local profile, should we expect
- * 	 this test to be successful?
- * - Make the appropriate changes so the current test uses 2 profiles ('jdbc' and 'local').
- * - Rerun the test, it should pass.
- */
-
 /* TODO-07: Use "jdbc" and "jndi" as active profiles
  * - Open TestInfrastructureJndiConfig and note the different datasource that will be
  * 	 used if the profile = 'jndi'.
@@ -49,10 +42,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
-@ActiveProfiles("jdbc")
+@ActiveProfiles({"jdbc", "local"})
 public class RewardNetworkTests {
 
-	
 	/**
 	 * The object being tested.
 	 */
