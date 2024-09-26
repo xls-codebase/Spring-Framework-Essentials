@@ -26,13 +26,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  */
 
-/* TODO-07: Use "jdbc" and "jndi" as active profiles
- * - Open TestInfrastructureJndiConfig and note the different datasource that will be
- * 	 used if the profile = 'jndi'.
- * - Now update the current test so it uses profiles 'jdbc' and 'jndi'.
- * - Rerun the test, it should pass.
- */
-
 /* TODO-08 (Optional): Create an inner static class from TestInfrastructureConfig
  * - Once inner static class is created, remove configuration
  *   class reference to TestInfrastructureConfig class from the annotation
@@ -42,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
-@ActiveProfiles({"jdbc", "local"})
+@ActiveProfiles({"jdbc", "jndi"})
 public class RewardNetworkTests {
 
 	/**
