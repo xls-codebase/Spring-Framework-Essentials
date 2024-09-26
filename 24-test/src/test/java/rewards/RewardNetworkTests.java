@@ -26,11 +26,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  */
 
-/* TODO-04: Change active-profile to "jdbc".
- * - Rerun the test, it should pass.
- * - Check which repository implementations are being used now.
- */
-
 /* TODO-05: Assign beans to the "local" profile
  * - Go to corresponding step in TestInfrastructureLocalConfig class.
  */
@@ -58,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
-@ActiveProfiles("stub")
+@ActiveProfiles("jdbc")
 public class RewardNetworkTests {
 
 	
