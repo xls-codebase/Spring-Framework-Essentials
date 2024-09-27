@@ -66,16 +66,8 @@ public class JdbcRewardRepositoryTests {
 	private void verifyRewardInserted(RewardConfirmation confirmation, Dining dining) throws SQLException {
 		assertEquals(1, getRewardCount());
 
-		//	TODO-02: Use JdbcTemplate to query for a map of all column values
-		//	of a row in the T_REWARD table based on the confirmationNumber.
-		//  - Use "SELECT * FROM T_REWARD WHERE CONFIRMATION_NUMBER = ?" as SQL statement
-		//	- After making the changes, execute this test class to verify
-		//	  its successful execution.
-		//	  (If you are using Gradle, comment out the test exclude in
-		//    the build.gradle file.)
-		//
-		
-		Map<String, Object> values = null;
+		String sql = "SELECT * FROM T_REWARD WHERE CONFIRMATION_NUMBER = ?";
+		Map<String, Object> values = jdbcTemplate.queryForMap(sql, confirmation.getConfirmationNumber());
 		verifyInsertedValues(confirmation, dining, values);
 	}
 
