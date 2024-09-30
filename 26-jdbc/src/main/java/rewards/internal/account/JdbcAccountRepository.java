@@ -3,6 +3,7 @@ package rewards.internal.account;
 import common.money.MonetaryAmount;
 import common.money.Percentage;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -21,16 +22,15 @@ import java.sql.SQLException;
 // - Refactor JdbcAccountRepositoryTests accordingly
 // - Run JdbcAccountRepositoryTests and verity it passes
 
-// TODO-05: Refactor this repository to use JdbcTemplate.
-// - Add a field of type JdbcTemplate.
-// - Refactor the code in the constructor to instantiate the JdbcTemplate
-//   object using the given DataSource object.
 public class JdbcAccountRepository implements AccountRepository {
 
 	private DataSource dataSource;
+	private JdbcTemplate jdbcTemplate;
 
 	public JdbcAccountRepository(DataSource dataSource) {
+
 		this.dataSource = dataSource;
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	// TODO-07 (Optional): Refactor this method using JdbcTemplate and ResultSetExtractor
