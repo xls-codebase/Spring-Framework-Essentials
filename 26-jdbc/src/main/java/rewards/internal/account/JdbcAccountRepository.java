@@ -85,41 +85,11 @@ public class JdbcAccountRepository implements AccountRepository {
 		return account;
 	}
 
-	// TODO-06: Refactor this method to use JdbcTemplate.
-	// - Note that an account has multiple beneficiaries
-	//   and you are going to perform UPDATE operation using
-	//   JdbcTemplate for each of those beneficiaries
-	// - Rerun the JdbcAccountRepositoryTests and verify it passes
 	public void updateBeneficiaries(Account account) {
 		String sql = "update T_ACCOUNT_BENEFICIARY SET SAVINGS = ? where ACCOUNT_ID = ? and NAME = ?";
-		Connection conn = null;
-		PreparedStatement ps = null;
-		try {
-			conn = dataSource.getConnection();
-			ps = conn.prepareStatement(sql);
-			for (Beneficiary beneficiary : account.getBeneficiaries()) {
-				ps.setBigDecimal(1, beneficiary.getSavings().asBigDecimal());
-				ps.setLong(2, account.getEntityId());
-				ps.setString(3, beneficiary.getName());
-				ps.executeUpdate();
-			}
-		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception occurred updating beneficiary savings", e);
-		} finally {
-			if (ps != null) {
-				try {
-					// Close to prevent database cursor exhaustion
-					ps.close();
-				} catch (SQLException ex) {
-				}
-			}
-			if (conn != null) {
-				try {
-					// Close to prevent database connection exhaustion
-					conn.close();
-				} catch (SQLException ex) {
-				}
-			}
+
+		for (Beneficiary beneficiary : account.getBeneficiaries()) {
+			jdbcTemplate.update(sql, beneficiary.getSavings().asBigDecimal(), account.getEntityId(), beneficiary.getName());
 		}
 	}
 
