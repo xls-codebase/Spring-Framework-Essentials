@@ -7,7 +7,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -24,15 +23,13 @@ import java.sql.SQLException;
 
 public class JdbcAccountRepository implements AccountRepository {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
 	private ResultSetExtractor<Account> accountExtractor = new AccountExtractor();
 
-	public JdbcAccountRepository(DataSource dataSource) {
+	public JdbcAccountRepository(JdbcTemplate jdbcTemplate) {
 
-		this.dataSource = dataSource;
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	public Account findByCreditCard(String creditCardNumber) {

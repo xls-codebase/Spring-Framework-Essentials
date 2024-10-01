@@ -1,6 +1,5 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,9 +16,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class RewardsConfig {
-
-	@Autowired
-	DataSource dataSource;
 
 	JdbcTemplate jdbcTemplate;
 
@@ -38,7 +34,7 @@ public class RewardsConfig {
 	
 	@Bean
 	public AccountRepository accountRepository(){
-		JdbcAccountRepository repository = new JdbcAccountRepository(dataSource);
+		JdbcAccountRepository repository = new JdbcAccountRepository(jdbcTemplate);
 		return repository;
 	}
 	
