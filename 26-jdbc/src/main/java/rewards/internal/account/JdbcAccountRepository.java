@@ -14,13 +14,6 @@ import java.sql.SQLException;
  * Loads accounts from a data source using the JDBC API.
  */
 
-// TODO-10 (Optional) : Inject JdbcTemplate directly to this repository class
-// - Refactor the constructor to get the JdbcTemplate injected directly
-//   (instead of DataSource getting injected)
-// - Refactor RewardsConfig accordingly
-// - Refactor JdbcAccountRepositoryTests accordingly
-// - Run JdbcAccountRepositoryTests and verity it passes
-
 public class JdbcAccountRepository implements AccountRepository {
 
 	private JdbcTemplate jdbcTemplate;

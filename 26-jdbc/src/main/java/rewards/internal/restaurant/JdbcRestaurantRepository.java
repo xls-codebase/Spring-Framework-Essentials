@@ -14,13 +14,6 @@ import java.sql.SQLException;
  * Loads restaurants from a data source using the JDBC API.
  */
 
-// TODO-09 (Optional) : Inject JdbcTemplate directly to this repository class
-// - Refactor the constructor to get the JdbcTemplate injected directly
-//   (instead of DataSource getting injected)
-// - Refactor RewardsConfig accordingly
-// - Refactor JdbcRestaurantRepositoryTests accordingly
-// - Run JdbcRestaurantRepositoryTests and verity it passes
-
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
 	private JdbcTemplate jdbcTemplate;
