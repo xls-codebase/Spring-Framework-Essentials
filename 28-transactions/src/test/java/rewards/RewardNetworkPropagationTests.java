@@ -19,9 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * execution.
  */
 
-// TODO-07: Re-run this test, it should now pass.
-// - Think about why this test passes now.
-
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { SystemTestConfig.class })
 public class RewardNetworkPropagationTests {
