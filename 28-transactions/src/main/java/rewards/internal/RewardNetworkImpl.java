@@ -1,7 +1,6 @@
 package rewards.internal;
 
 import common.money.MonetaryAmount;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import rewards.AccountContribution;
 import rewards.Dining;
@@ -49,7 +48,7 @@ public class RewardNetworkImpl implements RewardNetwork {
 		this.rewardRepository = rewardRepository;
 	}
 
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Transactional
 	public RewardConfirmation rewardAccountFor(Dining dining) {
 		Account account = accountRepository.findByCreditCard(dining.getCreditCardNumber());
 		Restaurant restaurant = restaurantRepository.findByMerchantNumber(dining.getMerchantNumber());
