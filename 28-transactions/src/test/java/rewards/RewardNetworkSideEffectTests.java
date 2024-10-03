@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 
@@ -21,13 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * JUnit makes no guarantee about the order that tests run in, so we force tests
  * to run in method name order using @FixMethodOrder(MethodSorters.NAME_ASCENDING)
  * in this particular testing scenario. (In general, you should not do this.)
- *
- * TODO-10: Add @Transactional on the class and re-run the test. It should pass.
- * Do you know why?
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { SystemTestConfig.class })
 @TestMethodOrder(MethodOrderer.MethodName.class)
+@Transactional
 public class RewardNetworkSideEffectTests {
 
 	private static final String SAVINGS_SQL = "select SAVINGS from T_ACCOUNT_BENEFICIARY where NAME = ?";
